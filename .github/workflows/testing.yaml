@@ -11,50 +11,9 @@ jobs:
         php-version: [5.5, 5.6, 7.0, 7.1, 7.2, 7.3, 7.4, 8.0, 8.1, 8.2]
     steps:
       - uses: actions/checkout@v3
+      - run: echo "PHP Version = " ${{ matrix.php-version }}
       - name: Setup PHP ${{ matrix.php-version }}
-        uses: shivammathur/setup-php@v3
+        uses: shivammathur/setup-php@2.25.1
         with:
           php-version: ${{ matrix.php-version }}
-  #     - name: Test for PHPUnit on PHP ${{ matrix.php-version }}
-  #       uses: "./${{ matrix.php-version }}/phpunit"
-  #       with:
-  #         args: --help
-  #     - name: Test for PHP CodeSniffer on PHP ${{ matrix.php-version }}
-  #       uses: "./${{ matrix.php-version }}/phpcs"
-  #       with:
-  #         args: --help
-  #     - name: Test for PHP Mess Detector on PHP ${{ matrix.php-version }}
-  #       uses: "./${{ matrix.php-version }}/phpmd"
-  #       with:
-  #         args: --version
-  #     - name: Test for PHP PhpMetrics on PHP ${{ matrix.php-version }}
-  #       uses: "./${{ matrix.php-version }}/phpmetrics"
-  #       with:
-  #         args: --help
-
-  # buildRootDir:
-  #   name: Verify all tools are available for each PHP version
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Git checkout
-  #       uses: actions/checkout@v3
-  #     - name: Test for PHP CodeSniffer in root dir
-  #       uses: ./phpcs
-  #       with:
-  #         args: --help
-  #     - name: Test for PHP Mess Detector in root dir
-  #       uses: ./phpmd
-  #       with:
-  #         args: --help
-  #     - name: Test for PHP PhpMetrics in root dir
-  #       uses: ./phpmetrics
-  #       with:
-  #         args: --help
-  #     - name: Test for PHPUnit in root dir
-  #       uses: ./phpunit
-  #       with:
-  #         args: --help
-  #     - name: Test for PHPStan in root dir
-  #       uses: ./phpstan
-  #       with:
-  #         args: --help
+  
