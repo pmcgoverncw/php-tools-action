@@ -16,4 +16,7 @@ jobs:
         uses: shivammathur/setup-php@2.25.1
         with:
           php-version: ${{ matrix.php-version }}
-  
+      - name: Test for PHPUnit on PHP ${{ matrix.php-version }}
+        uses: "./${{ matrix.php-version }}/phpunit"
+        with:
+          args: --help
